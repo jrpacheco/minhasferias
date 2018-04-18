@@ -1,0 +1,48 @@
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Minhas Férias">
+    <meta name="keywords" content="férias, calculo de ferias">
+    <meta name="author" content="Jr. Pacheco">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" type="text/css" href="base.css" />
+    <script type="text/javascript" src="index.js"></script>
+</head>
+
+<body>
+    <input type="datetime-local" maxlength="20" id="IdDataInformada" placeholder="Data de viagem" />
+    <button type="button" onclick="javascript:CalculaFerias();" id="btnCalcular">Calcular</button>
+    <h1>Só falta isso para minhas férias...</h1>
+    <div id="divRelogio">
+        <div>
+            <span class="meses"></span>
+            <div class="textoPequeno">Meses</div>
+        </div>
+        <div>
+            <span class="semanas"></span>
+            <div class="textoPequeno">Semanas</div>
+        </div>
+        <div>
+            <span class="dias"></span>
+            <div class="textoPequeno">Dias</div>
+        </div>
+        <div>
+            <span class="horas"></span>
+            <div class="textoPequeno">Horas</div>
+        </div>
+        <div>
+            <span class="minutos"></span>
+            <div class="textoPequeno">Minutos</div>
+        </div>
+        <div>
+            <span class="segundos"></span>
+            <div class="textoPequeno">Segundos</div>
+        </div>
+    </div>
+    <script type="text/javascript">    
+        Inicializa();
+    </script>
+</body>
+
+</html>
