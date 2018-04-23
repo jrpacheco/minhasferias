@@ -13,8 +13,8 @@ function Inicializa() {
 function ValidarDataInformada(element) {
     
     try {
-        var dataInformada = Date.parse(element.value);
-        if (isNaN(dataInformada)) {
+        var dataInformada = new Date(element.value);
+        if (dataInformada == "Invalid Date") {
             alert('Data/Hora inválida. Informe a data/hora corretamente.');
             return 0;
         } else if (dataInformada <= new Date()) {
@@ -32,7 +32,7 @@ function CalculaFerias() {
 
     var elem = document.getElementById("IdDataInformada");
 
-    //if (!ValidarDataInformada(elem)) return;
+    if (!ValidarDataInformada(elem)) return;
     
     var dataFim = new Date(Date.parse(elem.value));
 
