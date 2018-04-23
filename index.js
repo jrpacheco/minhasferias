@@ -1,3 +1,6 @@
+var tempoFim = "0";
+var timeDateInformada = "0";
+
 function Inicializa() {
     document.querySelector('.meses').innerHTML;
     document.querySelector('.semanas').innerHTML;
@@ -8,6 +11,7 @@ function Inicializa() {
 }
 
 function ValidarDataInformada(element) {
+    
     try {
         var dataInformada = Date.parse(element.value);
         if (isNaN(dataInformada)) {
@@ -28,39 +32,41 @@ function CalculaFerias() {
 
     var elem = document.getElementById("IdDataInformada");
 
-    if (!ValidarDataInformada(elem)) return;
-
+    //if (!ValidarDataInformada(elem)) return;
+    
     var dataFim = new Date(Date.parse(elem.value));
 
     var dias = getDaysBetweenDates(new Date(), dataFim);
 
     var dia_em_milissegundos = 24 * 60 * 60 * 1000;
 
-    var tempoFim = new Date(Date.parse(new Date()) + dias * dia_em_milissegundos);//new Date(year, month, date, hours, minutes, seconds, ms)
+    tempoFim = new Date(Date.parse(new Date()) + dias * dia_em_milissegundos);//new Date(year, month, date, hours, minutes, seconds, ms)
 
-    var timeDateInformada = dataFim.getTime();
+    timeDateInformada = dataFim.getTime();
 
-    InicializaRelogio("divRelogio", tempoFim, timeDateInformada);
+    InicializaRelogio("divRelogio");
 }
 
-function InicializaRelogio(id, tempoFim, timeDateInformada) {
+function InicializaRelogio(id) {
 
-    var relogio = document.getElementById(id);
+    var relogio = document.getElementById(id);    
 
     var mesesSpan = relogio.querySelector('.meses');
     var semanaSpan = relogio.querySelector('.semanas');
     var diasSpan = relogio.querySelector('.dias');
     var horasSpan = relogio.querySelector('.horas');
     var minutosSpan = relogio.querySelector('.minutos');
-    var segundosSpan = relogio.querySelector('.segundos');
+    var segundosSpan = relogio.querySelector('.segundos');    
 
-    function AtualizaRelogio() {
+    function AtualizaRelogio() {        
 
         tempoFim.setTime(timeDateInformada);
 
         var t = pegaTempoRestante(tempoFim);
 
-        diasSpan.innerHTML = t.dias;
+        mesesSpan.innerHTML = ('0' + t.meses).slice(-2);
+        semanaSpan.innerHTML = ('0' + t.semanas).slice(-2);
+        diasSpan.innerHTML = ('0' + t.dias).slice(-2);
         horasSpan.innerHTML = ('0' + t.horas).slice(-2);
         minutosSpan.innerHTML = ('0' + t.minutos).slice(-2);
         segundosSpan.innerHTML = ('0' + t.segundos).slice(-2);
@@ -68,9 +74,7 @@ function InicializaRelogio(id, tempoFim, timeDateInformada) {
         if (t.total <= 0) {
             clearInterval(timeinterval);
         }
-    }
-
-    //AtualizaRelogio();
+    }    
     var timeinterval = setInterval(AtualizaRelogio, 1000);
 }
 
@@ -80,8 +84,8 @@ function pegaTempoRestante(tempoFim) {
     var minutos = Math.floor((t / 1000 / 60) % 60);
     var horas = Math.floor((t / (1000 * 60 * 60)) % 24);
     var dias = Math.floor(t / (1000 * 60 * 60 * 24));
-    var semanas = "";
-    var meses = "";
+    var semanas = Math.floor((t / (1000 * 60 * 60 * 24 * 7)));
+    var meses = Math.floor(t / 2.628e+9) % 12;
 
     return {
         'total': t,
