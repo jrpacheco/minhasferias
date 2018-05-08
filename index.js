@@ -11,7 +11,7 @@ function Inicializa() {
 }
 
 function ValidarDataInformada(element) {
-    
+
     try {
         var dataInformada = new Date(element.value);
         if (dataInformada == "Invalid Date") {
@@ -33,14 +33,14 @@ function CalculaFerias() {
     var elem = document.getElementById("IdDataInformada");
 
     if (!ValidarDataInformada(elem)) return;
-    
+
     var dataFim = new Date(Date.parse(elem.value));
 
     var dias = getDaysBetweenDates(new Date(), dataFim);
 
     var dia_em_milissegundos = 24 * 60 * 60 * 1000;
 
-    tempoFim = new Date(Date.parse(new Date()) + dias * dia_em_milissegundos);//new Date(year, month, date, hours, minutes, seconds, ms)
+    tempoFim = new Date(Date.parse(new Date()) + dias * dia_em_milissegundos);
 
     timeDateInformada = dataFim.getTime();
 
@@ -49,16 +49,16 @@ function CalculaFerias() {
 
 function InicializaRelogio(id) {
 
-    var relogio = document.getElementById(id);    
+    var relogio = document.getElementById(id);
 
     var mesesSpan = relogio.querySelector('.meses');
     var semanaSpan = relogio.querySelector('.semanas');
     var diasSpan = relogio.querySelector('.dias');
     var horasSpan = relogio.querySelector('.horas');
     var minutosSpan = relogio.querySelector('.minutos');
-    var segundosSpan = relogio.querySelector('.segundos');    
+    var segundosSpan = relogio.querySelector('.segundos');
 
-    function AtualizaRelogio() {        
+    function AtualizaRelogio() {
 
         tempoFim.setTime(timeDateInformada);
 
@@ -71,11 +71,13 @@ function InicializaRelogio(id) {
         minutosSpan.innerHTML = ('0' + t.minutos).slice(-2);
         segundosSpan.innerHTML = ('0' + t.segundos).slice(-2);
 
-        if (t.total <= 0) {
-            clearInterval(timeinterval);
-        }
-    }    
-    var timeinterval = setInterval(AtualizaRelogio, 1000);
+        //if (t.total <= 0) {
+        //    clearInterval(timeinterval);
+        //}
+    }
+    //var timeinterval = setInterval(AtualizaRelogio, 1000);
+
+    AtualizaRelogio();
 }
 
 function pegaTempoRestante(tempoFim) {
@@ -85,6 +87,7 @@ function pegaTempoRestante(tempoFim) {
     var horas = Math.floor((t / (1000 * 60 * 60)) % 24);
     var dias = Math.floor(t / (1000 * 60 * 60 * 24));
     var semanas = Math.floor((t / (1000 * 60 * 60 * 24 * 7)));
+    var semanasDias = dias - (semanas * 7);
     var meses = Math.floor(t / 2.628e+9) % 12;
 
     return {
@@ -113,3 +116,19 @@ function getDaysBetweenDates(d0, d1) {
     // Round to remove daylight saving errors
     return Math.round((x1 - x0) / msPerDay);
 }
+
+function weeks_between(date1, date2) {
+	// The number of milliseconds in one week
+	var ONE_WEEK = 1000 * 60 * 60 * 24 * 7;
+	// Convert both dates to milliseconds
+	var date1_ms = date1.getTime();
+	var date2_ms = date2.getTime();
+	// Calculate the difference in milliseconds
+	var difference_ms = Math.abs(date1_ms - date2_ms);
+	// Convert back to weeks and return hole weeks
+	return Math.floor(difference_ms / ONE_WEEK);
+}
+
+var dataIni = new Date("2018-05-08");
+var dataFim = new Date("2018-05-28")
+alert(weeks_between(dataIni,dataFim));
