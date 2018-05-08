@@ -1,11 +1,22 @@
 * {
     box-sizing: border-box;
 }
+html{
+    background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)),
+                  url(http://ppcdn.500px.org/75319705/1991f76c0c6a91ae1d23eb94ac5c7a9f7e79c480/2048.jpg);
+    /*background-image: url(http://ppcdn.500px.org/75319705/1991f76c0c6a91ae1d23eb94ac5c7a9f7e79c480/2048.jpg);*/
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+    background-color: #999;
+    height: 100%;
+  }
 body{
     font-family: sans-serif;
     font-size: 62.5%; /* Altera o valor da fonte padrão de 16px para 10px. Desta forma, 12px passa a equivaler a 1.2em, 14px fica equivalente a 1.4em, etc.*/
     font-weight: 100;
-    background:#00ECB9;
+    /*background:#00ECB9;*/
     text-align:center;
   }
 
