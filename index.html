@@ -2,47 +2,121 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Minhas Férias">
     <meta name="keywords" content="férias, calculo de ferias">
     <meta name="author" content="Jr. Pacheco">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" media="screen" type="text/css" href="base.css" />
-    <script type="text/javascript" src="index.js"></script>
+
+    <!-- OG Meta Tags para melhorar a aparência da postagem quando você compartilha a página no LinkedIn, Facebook, Google+ -->
+	<meta property="og:site_name" content="Minhas Férias" /> <!-- website name -->
+	<meta property="og:site" content="http://minhasferias.azurewebsites.net" /> <!-- website link -->
+	<meta property="og:title" content="Quanto falta para minhas férias?"/> <!-- title shown in the actual shared post -->
+	<meta property="og:description" content="Compartilhe a data de suas férias com seus amigos." /> <!-- description shown in the actual shared post -->
+	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
+	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+	<meta property="og:type" content="article" />
+
+
+    <title>Minhas Férias</title>
+
+    <!-- Styles -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,600,700,700i" rel="stylesheet">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.css" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
+
 </head>
 
-<body>
-    <input type="date" maxlength="20" id="IdDataInformada" placeholder="Data de viagem" />
+<body data-spy="scroll" data-target=".fixed-top">
+    <!--<input type="date" maxlength="20" id="IdDataInformada" placeholder="Data de viagem" />
     <button type="button" onclick="javascript:CalculaFerias();" id="btnCalcular">Calcular</button>
-    <h1>Só falta isso para minhas férias...</h1>
-    <div id="divRelogio">
-        <div>
-            <span class="meses"></span>
-            <div class="textoPequeno">Meses</div>
-        </div>
-        <div>
-            <span class="semanas"></span>
-            <div class="textoPequeno">Semanas</div>
-        </div>
-        <div>
-            <span class="dias"></span>
-            <div class="textoPequeno">Dias</div>
-        </div>
-        <div>
-            <span class="horas"></span>
-            <div class="textoPequeno">Horas</div>
-        </div>
-        <div>
-            <span class="minutos"></span>
-            <div class="textoPequeno">Minutos</div>
-        </div>
-        <div>
-            <span class="segundos"></span>
-            <div class="textoPequeno">Segundos</div>
-        </div>
-    </div>
-    <script type="text/javascript">         
-        Inicializa();
-    </script>
+    <body data-spy="scroll" data-target=".fixed-top">-->
+
+        <!-- Preloader -->
+        <div class="spinner-wrapper">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>  
+    
+        <!-- Header -->
+        <header id="header">
+    
+            <!-- Logo And Details -->
+            <div class="logo-and-details-wrapper">
+                <!--<a href="index.html"><img class="logo" src="assets/img/logo.svg" alt="logo"></a>-->
+                <!-- Text Logo -->
+                <a class="logo-text" href="index.html">Minha Férias</a>
+                
+                <!-- Social Icons Container -->
+                <div class="social-icons-container">
+                    <span class="fa-stack fa-lg">
+                        <a href="#your-link-here">
+                            <i class="fa fa-circle fa-stack-2x facebook"></i>
+                            <i class="fa fa-facebook fa-stack-1x"></i>
+                        </a>
+                    </span>
+                    <span class="fa-stack fa-lg">
+                        <a href="#your-link-here">
+                            <i class="fa fa-circle fa-stack-2x twitter"></i>
+                            <i class="fa fa-twitter fa-stack-1x"></i>
+                        </a>
+                    </span>
+                    <span class="fa-stack fa-lg">
+                        <a href="#your-link-here">
+                            <i class="fa fa-circle fa-stack-2x google-plus"></i>
+                            <i class="fa fa-google-plus fa-stack-1x"></i>
+                        </a>
+                    </span>
+                    <span class="fa-stack fa-lg">
+                        <a href="#your-link-here">
+                            <i class="fa fa-circle fa-stack-2x instagram"></i>
+                            <i class="fa fa-instagram fa-stack-1x"></i>
+                        </a>
+                    </span>
+                    <span class="fa-stack fa-lg">
+                        <a href="#your-link-here">
+                            <i class="fa fa-circle fa-stack-2x linkedin"></i>
+                            <i class="fa fa-linkedin fa-stack-1x"></i>
+                        </a>
+                    </span>
+                    <span class="fa-stack fa-lg">
+                        <a href="#your-link-here">
+                            <i class="fa fa-circle fa-stack-2x dribbble"></i>
+                            <i class="fa fa-dribbble fa-stack-1x"></i>
+                        </a>
+                    </span> 
+                </div> <!-- end of social icons container -->
+            </div> <!-- end of logo and details -->    
+            
+            <!-- Header Content -->
+            <div class="header-content">
+                <div class="container">
+                    <div class="countdown text-center">
+                        <span id="clock">                            
+                        </span>
+                    </div>
+                    <h1>Quanto falta para <span id="js-rotating">minhas FÉRIAS?, meu DESCANSO?, minha VIAGEM?</span></h1>
+                    <p class="p-large">O MinhasFérias irá calcular quanto tempo falta para suas férias de acordo com a data amarcada da sua saída do trabalho.</p>
+                </div> 
+            </div> <!-- end of header content -->            
+
+        </header> <!-- end of header -->    
+    
+        <!-- Scripts -->
+        <script src="scripts/jquery.min.js"></script> <!-- jQuery v3.2.1 - required by Bootstrap -->
+        <script src="scripts/popper.min.js"></script> <!-- Popper tooltip library - required by Bootstrap -->
+        <script src="scripts/bootstrap.min.js"></script> <!-- Bootstrap v4.0.0-beta - front-end web framework -->      
+        <script src="scripts/jquery.easing.min.js" type="text/javascript"></script> <!-- jQuery Easing v1.3 for smooth scrolling between anchors -->  
+        <script src="scripts/jquery.countdown.min.js" type="text/javascript"></script> <!-- The Final Countdown v2.2.0 plugin for jQuery -->
+        <script src="scripts/morphext.min.js" type="text/javascript"></script> <!-- Morphtext v2.4.4 for rotating text in the header -->
+        <script src="scripts/script.js"></script>
+        
+    </body>
+    
 </body>
 
 </html>
