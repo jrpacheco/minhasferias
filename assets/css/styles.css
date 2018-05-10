@@ -1,10 +1,3 @@
-/* Template: Bono - Coming Soon Page Template
-   Author: InovatikThemes
-   Version: 1.0.0
-   Created: Nov 2017
-   Description: Master CSS file
-*/
-
 /****************************************
     TABLE OF CONTENTS
 
@@ -43,6 +36,46 @@ h3 {
 
 a, a:hover {
 	color: #fff;
+}
+
+.form-control-input {
+	width: 100%;
+	height: 3rem; /* looks bad in IE if you use padding instead of height*/
+	padding-left: 1.5rem;
+    border: 1px solid #fff;
+	border-radius: 25px;	
+	background-color: #fff;
+	color: #3b454d;
+	font: 300 1rem/1.5rem "Open Sans", sans-serif;
+	-webkit-appearance: none; /* removes inner shadow on form inputs on ios safari */
+}
+
+.form-control-submit-button {
+	width: 100%;
+	height: 3rem;
+	border: 1px solid #b62474;
+	border-radius: 25px;
+	background-color: #b62474;
+	color: #fff;
+	font: 700 1rem/2rem "Open Sans", sans-serif;
+	cursor: pointer;
+	transition: all .3s ease;
+}
+
+.form-control-submit-button:hover {
+	border: 1px solid #fff;
+	background-color: transparent;
+	color: #fff;
+}
+
+#msgSubmit.h3.text-center.text-error {
+	color: #35dcd4;
+	font: 300 1.25rem/1.75rem "Open Sans", sans-serif;
+}
+
+#msgSubmit.h3.text-center.text-confirmation {
+	color: #35dcd4;
+	font: 300 1.25rem/1.75rem "Open Sans", sans-serif;
 }
 
 /* FadeIn Animation From Animate.css Used For Morphtext */
@@ -246,7 +279,7 @@ header .list-unstyled .fa {
 /* Min-width width 768px */
 @media (min-width: 768px)	{
 	h1 {
-		font: 700 2.75rem/3.5rem "Raleway", sans-serif;
+		font: 700 2.75rem/3.5rem "Raleway", sans-serif;		
 	}
 	
 	header {
@@ -292,6 +325,7 @@ header .list-unstyled .fa {
 
 	header .countdown {
 		font: 600 4.5rem/1.75rem "Open Sans", sans-serif;
+		margin-top: 30%;
 	}
 
 	header .countdown #clock .counter-number {
@@ -302,6 +336,39 @@ header .list-unstyled .fa {
 
 	header .countdown #clock .timer-text {
 		font: 300 1rem/1rem "Open Sans", sans-serif;
+	}
+
+	header .form-group {
+		display: inline-block;
+	}
+
+	header .form-control-input {
+		width: 16rem;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	header .form-control-submit-button {
+		padding-right: 1.9rem;
+		padding-left: 1.8rem;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+
+	header .help-block.with-errors,
+	header .form-message {
+		position: absolute;
+		right: 0;
+		left: 0;
+		margin-top: 0.25rem;
+	}
+
+	#msgSubmit.h3.text-center.text-error {
+		margin-top: 1rem;
+	}
+
+	#msgSubmit.h3.text-center.text-confirmation {
+		margin-top: 0;
 	}
 
 	header .big-image {
@@ -342,6 +409,14 @@ header .list-unstyled .fa {
 
 	header .big-image {
 		max-width: 45rem;
+
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		
+		margin-right: auto;
+		margin-left: auto;
 	}
 }
 
@@ -354,5 +429,13 @@ header .list-unstyled .fa {
 
 	header .big-image {
 		max-width: 70rem;
+
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		
+		margin-right: auto;
+		margin-left: auto;
 	}
 }
