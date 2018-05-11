@@ -32,7 +32,8 @@ function calcularFerias() {
 
 	var dataFerias = $("#dataFerias").val();
 
-	if (dataFerias !== "") {
+	
+	if (dataFerias !== "" && new Date(dataFerias) != "Invalid Date") {
 		var strTimeZone = $("#timezone option:selected").text();
 		var dataInformada = moment.tz(dataFerias, strTimeZone);
 
