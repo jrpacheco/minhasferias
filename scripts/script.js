@@ -11,21 +11,7 @@
 			}, 500);
 		}
 		hidePreloader();
-	});
-
-	var dataInformada = moment.tz("2018-05-18 18:00", "Africa/Luanda");
-
-	$('#clock').countdown(dataInformada.toDate())
-		.on('update.countdown', function (event) {
-			var formatMonth = '<span class="counter-number">%-m mês<br><br></span>&nbsp;e&nbsp;<span class="counter-number">%-n dia%!n<br><br></span>';
-			var formatWeek = '<span class="counter-number">%-w semana%!w<br><br></span>&nbsp;e&nbsp;<span class="counter-number">%-d dia%!d<br><br></span>';
-			var formatCountDown = '<span class="counter-number">%-H<br><br><span class="timer-text">Horas</span></span><span class="counter-number">%-M<br><br><span class="timer-text">Minutos</span></span><span class="counter-number">%-S<br><br><span class="timer-text">Segundos</span></span>';
-			$(this).html(event.strftime(formatMonth + "</br>" + formatWeek + "</br>" + formatCountDown));
-		})
-		.on('finish.countdown', function (event) {
-			$(this).html('Suas férias chegaram!')
-				.parent().addClass('disabled');
-		});
+	});	
 
 	/* Morphtext For Rotating Text In Header */
 	$("#js-rotating").Morphext({
@@ -42,10 +28,32 @@
 
 })(jQuery);
 
+function calcularFerias() {
+	
+	var dataFerias = $("#dataFerias").val();
+	var strTimeZone = $("#timezone option:selected").text();
+	var dataInformada = moment.tz(dataFerias, strTimeZone);
+
+	$('#clock').countdown(dataInformada.toDate())
+		.on('update.countdown', function (event) {
+			var formatMonth = '<span class="counter-number">%-m mes %-n dia%!n<br><br></span>';
+			var formatWeek = '<span class="counter-number">%-w semana%!w %-d dia%!d<br><br></span>';
+			var formatCountDown = '<span class="counter-number">%-n<br><br><span class="timer-text">Dias</span></span>' +
+				'<span class="counter-number">%-H<br><br><span class="timer-text">Horas</span></span>' +
+				'<span class="counter-number">%-M<br><br><span class="timer-text">Minutos</span></span>' +
+				'<span class="counter-number">%-S<br><br><span class="timer-text">Segundos</span></span>';
+			$(this).html(event.strftime(formatMonth + "</br>" + formatWeek + "</br>" + formatCountDown));
+		})
+		.on('finish.countdown', function (event) {
+			$(this).html('Suas férias chegaram!')
+				.parent().addClass('disabled');
+		});
+}
+
 $(document).ready(function () {
 	$("#timezone").select2({ theme: "classic" });
 
-	$("#btnCalcular").click(function(){
-		alert("Olá");
+	$("#btnCalcular").click(function () {
+		calcularFerias();
 	});
 });

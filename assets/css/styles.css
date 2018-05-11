@@ -15,6 +15,9 @@ body,
 html {
     width: 100%;
 	height: 100%; 
+
+	background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../img/header-background.jpg') center top no-repeat;
+	background-size: cover;
 }
 
 body, p {
@@ -43,7 +46,7 @@ a, a:hover {
 	height: 3rem; /* looks bad in IE if you use padding instead of height*/
 	padding-left: 1.5rem;
     border: 1px solid #fff;
-	border-radius: 25px;	
+	/*border-radius: 25px;	*/
 	background-color: #fff;
 	color: #3b454d;
 	font: 300 1rem/1.5rem "Open Sans", sans-serif;
@@ -54,7 +57,7 @@ a, a:hover {
 	width: 100%;
 	height: 3rem;
 	border: 1px solid #b62474;
-	border-radius: 25px;
+	/*border-radius: 25px;*/
 	background-color: #b62474;
 	color: #fff;
 	font: 700 1rem/2rem "Open Sans", sans-serif;
@@ -169,8 +172,8 @@ a, a:hover {
 /*     03. Header     */
 /**********************/
 header {
-    text-align: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../img/header-background.jpg') center top no-repeat;
+	text-align: center;
+	background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../img/header-background.jpg') center top no-repeat;
 	background-size: cover;
 }
 
@@ -231,7 +234,7 @@ header .header-content {
 header .countdown {
 	margin-bottom: 2.5rem;
 	color: #fff;
-	font: 600 3rem/1.25rem "Open Sans", sans-serif;
+	font: 500 2rem/1rem "Open Sans", sans-serif;
 }
 
 header .countdown #clock .counter-number {
@@ -241,7 +244,7 @@ header .countdown #clock .counter-number {
 	margin-left: 0.5rem;
 	padding: 2rem 1.5rem 1.25rem 1.5rem;
 	border-radius: 8px;
-	background-color: rgba(255, 255, 255, 0.1);
+	background-color: rgba(255, 255, 255, 0.1);	
 }
 
 header .countdown #clock .separator {
@@ -344,14 +347,14 @@ header .list-unstyled .fa {
 	header .form-control-input {
 		width: 16rem;
 		border-top-right-radius: 0;
-		border-bottom-right-radius: 0;
+		border-bottom-right-radius: 0;		
 	}
 
 	header .form-control-submit-button {
 		padding-right: 1.9rem;
 		padding-left: 1.8rem;
 		border-top-left-radius: 0;
-		border-bottom-left-radius: 0;
+		border-bottom-left-radius: 0;		
 	}
 
 	header .help-block.with-errors,

@@ -12,7 +12,7 @@
     <!-- website name -->
     <meta property="og:site" content="http://minhasferias.azurewebsites.net" />
     <!-- website link -->
-    <meta property="og:title" content="Quanto falta para minhas férias?" />
+    <meta property="og:title" content="Quanto falta para as minhas FÉRIAS?" />
     <!-- title shown in the actual shared post -->
     <meta property="og:description" content="Compartilhe a data de suas férias com seus amigos." />
     <!-- description shown in the actual shared post -->
@@ -55,70 +55,9 @@
             <!--<a href="index.html"><img class="logo" src="assets/img/logo.svg" alt="logo"></a>-->
             <!-- Text Logo -->
             <a class="logo-text" href="index.html">Minhas Férias</a>
-
+            
             <div class="social-icons-container">
-                <span class="fa-stack fa-lg">
-                    <a href="#">
-                        <i class="fa fa-circle fa-stack-2x facebook"></i>
-                        <i class="fa fa-facebook fa-stack-1x"></i>
-                    </a>
-                </span>
-                <span class="fa-stack fa-lg">
-                    <a href="#">
-                        <i class="fa fa-circle fa-stack-2x twitter"></i>
-                        <i class="fa fa-twitter fa-stack-1x"></i>
-                    </a>
-                </span>
-                <span class="fa-stack fa-lg">
-                    <a href="#">
-                        <i class="fa fa-circle fa-stack-2x google-plus"></i>
-                        <i class="fa fa-google-plus fa-stack-1x"></i>
-                    </a>
-                </span>
-                <span class="fa-stack fa-lg">
-                    <a href="#">
-                        <i class="fa fa-circle fa-stack-2x instagram"></i>
-                        <i class="fa fa-instagram fa-stack-1x"></i>
-                    </a>
-                </span>
-                <span class="fa-stack fa-lg">
-                    <a href="#">
-                        <i class="fa fa-circle fa-stack-2x linkedin"></i>
-                        <i class="fa fa-linkedin fa-stack-1x"></i>
-                    </a>
-                </span>
-                <span class="fa-stack fa-lg">
-                    <a href="#">
-                        <i class="fa fa-circle fa-stack-2x dribbble"></i>
-                        <i class="fa fa-dribbble fa-stack-1x"></i>
-                    </a>
-                </span>
-            </div>
-        </div>
-        <div class="header-content">
-            <div class="container">
-                <div class="countdown text-center">
-                    <span id="clock">
-                    </span>
-                </div>
-                <h1>Quanto falta para
-                    <span id="js-rotating">minhas FÉRIAS?, meu DESCANSO?, minha VIAGEM?</span>
-                </h1>                
-            </div>
-            <div id="frmCalculaData" data-toggle="validator" novalidate="true" class="shake animated">
-                    <div class="form-group">
-                        <input type="date" class="form-control-input" id="data" placeholder="Data de início" required="Informe sua data de início de férias.">
-                        <div class="help-block with-errors"></div>
-                    </div>
-                    <div class="form-group">
-                        <button id="btnCalcular" type="button" class="form-control-submit-button">Calcular</button>
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="form-message">
-                        <div id="msgSubmit" class="h3 text-center text-confirmation"></div>
-                    </div>
-                </div>                
-            <div class="img-fluid">Timezone:
+                <h5>Timezone:</h5>
                 <select id="timezone">
                     <option value="Africa/Abidjan">Africa/Abidjan</option>
                     <option value="Africa/Accra">Africa/Accra</option>
@@ -704,7 +643,32 @@
                     <option value="Zulu">Zulu</option>
                 </select>
             </div>
-            <!--<img class="img-fluid big-image" src="assets/img/brasil.png" alt="Brasil">-->
+
+        </div>
+        <div class="header-content">
+            <div class="container">
+                <div class="countdown text-center">
+                    <span id="clock">
+                    </span>
+                </div>
+                <h1>Quanto falta para
+                    <span id="js-rotating">minhas FÉRIAS?</span>
+                </h1>                
+            </div>
+            
+            <div id="frmCalculaData" data-toggle="validator" novalidate="true" class="shake animated">
+                    <div class="form-group">
+                        <input type="datetime-local" class="form-control-input" id="dataFerias" placeholder="Data de início" required="Informe sua data de início de férias.">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <button id="btnCalcular" type="button" class="form-control-submit-button">Calcular</button>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="form-message">
+                        <div id="msgSubmit" class="h3 text-center text-confirmation"></div>
+                    </div>
+                </div>            
         </div>
     </header>
 
