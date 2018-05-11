@@ -11,7 +11,7 @@
 			}, 500);
 		}
 		hidePreloader();
-	});	
+	});
 
 	/* Morphtext For Rotating Text In Header */
 	$("#js-rotating").Morphext({
@@ -29,25 +29,28 @@
 })(jQuery);
 
 function calcularFerias() {
-	
-	var dataFerias = $("#dataFerias").val();
-	var strTimeZone = $("#timezone option:selected").text();
-	var dataInformada = moment.tz(dataFerias, strTimeZone);
 
-	$('#clock').countdown(dataInformada.toDate())
-		.on('update.countdown', function (event) {
-			var formatMonth = '<span class="counter-number">%-m mês e %-n dia%!n<br><br></span>';
-			var formatWeek = '<span class="counter-number">%-w semana%!w e %-d dia%!d<br><br></span>';
-			var formatCountDown =
-				'<span class="counter-number">%-H<br><br><span class="timer-text">Horas</span></span>' +
-				'<span class="counter-number">%-M<br><br><span class="timer-text">Minutos</span></span>' +
-				'<span class="counter-number">%-S<br><br><span class="timer-text">Segundos</span></span>';
-			$(this).html(event.strftime(formatMonth + "</br>" + formatWeek + "</br>" + formatCountDown));
-		})
-		.on('finish.countdown', function (event) {
-			$(this).html('Suas férias chegaram!')
-				.parent().addClass('disabled');
-		});
+	var dataFerias = $("#dataFerias").val();
+
+	if (dataFerias !== "") {
+		var strTimeZone = $("#timezone option:selected").text();
+		var dataInformada = moment.tz(dataFerias, strTimeZone);
+
+		$('#clock').countdown(dataInformada.toDate())
+			.on('update.countdown', function (event) {
+				var formatMonth = '<span class="counter-number">%-m mês e %-n dia%!n<br><br></span>';
+				var formatWeek = '<span class="counter-number">%-w semana%!w e %-d dia%!d<br><br></span>';
+				var formatCountDown =
+					'<span class="counter-number">%-H<br><br><span class="timer-text">Horas</span></span>' +
+					'<span class="counter-number">%-M<br><br><span class="timer-text">Minutos</span></span>' +
+					'<span class="counter-number">%-S<br><br><span class="timer-text">Segundos</span></span>';
+				$(this).html(event.strftime(formatMonth + "</br>" + formatWeek + "</br>" + formatCountDown));
+			})
+			.on('finish.countdown', function (event) {
+				$(this).html('Suas férias chegaram!')
+					.parent().addClass('disabled');
+			});
+	}
 }
 
 $(document).ready(function () {
