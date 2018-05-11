@@ -36,9 +36,9 @@ function calcularFerias() {
 
 	$('#clock').countdown(dataInformada.toDate())
 		.on('update.countdown', function (event) {
-			var formatMonth = '<span class="counter-number">%-m mes %-n dia%!n<br><br></span>';
-			var formatWeek = '<span class="counter-number">%-w semana%!w %-d dia%!d<br><br></span>';
-			var formatCountDown = '<span class="counter-number">%-n<br><br><span class="timer-text">Dias</span></span>' +
+			var formatMonth = '<span class="counter-number">%-m mês e %-n dia%!n<br><br></span>';
+			var formatWeek = '<span class="counter-number">%-w semana%!w e %-d dia%!d<br><br></span>';
+			var formatCountDown =
 				'<span class="counter-number">%-H<br><br><span class="timer-text">Horas</span></span>' +
 				'<span class="counter-number">%-M<br><br><span class="timer-text">Minutos</span></span>' +
 				'<span class="counter-number">%-S<br><br><span class="timer-text">Segundos</span></span>';
