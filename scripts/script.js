@@ -32,20 +32,26 @@ function calcularFerias() {
 
 	var dataFerias = $("#dataFerias").val();
 
-	
+
 	if (dataFerias !== "" && new Date(dataFerias) != "Invalid Date") {
 		var strTimeZone = $("#timezone option:selected").text();
 		var dataInformada = moment.tz(dataFerias, strTimeZone);
 
 		$('#clock').countdown(dataInformada.toDate())
 			.on('update.countdown', function (event) {
+
 				var formatMonth = '<span class="counter-number">%-m mês e %-n dia%!n<br><br></span>';
 				var formatWeek = '<span class="counter-number">%-w semana%!w e %-d dia%!d<br><br></span>';
-				var formatCountDown =
+				var formatCountDownWithDays =
+					'<span class="counter-number">%-D<br><br><span class="timer-text">Dias</span></span>' +
 					'<span class="counter-number">%-H<br><br><span class="timer-text">Horas</span></span>' +
 					'<span class="counter-number">%-M<br><br><span class="timer-text">Minutos</span></span>' +
 					'<span class="counter-number">%-S<br><br><span class="timer-text">Segundos</span></span>';
-				$(this).html(event.strftime(formatMonth + "</br>" + formatWeek + "</br>" + formatCountDown));
+
+				var existeInfoMes = event.strftime(formatMonth).indexOf("0") === -1;
+				var existeInfoSemana = event.strftime(formatWeek).indexOf("0") === -1;
+
+				$(this).html(event.strftime((existeInfoMes == false ? "" : formatMonth) + "</br>" + (existeInfoSemana == false ? "" : formatWeek) + "</br>" + formatCountDownWithDays));
 			})
 			.on('finish.countdown', function (event) {
 				$(this).html('Suas férias chegaram!')
