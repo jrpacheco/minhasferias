@@ -31,13 +31,15 @@
 function calcularFerias() {
 
 	var dataFerias = $("#dataFerias").val();
+	var strTimeZone = $("#timezone option:selected").text();
 
 	if (typeof (Storage) !== "undefined") {
 		localStorage.setItem("dataFerias", dataFerias);
+		localStorage.setItem("timeZone", strTimeZone);
 	}
-	
+
 	if (dataFerias !== "" && new Date(dataFerias) != "Invalid Date") {
-		var strTimeZone = $("#timezone option:selected").text();
+
 		var dataInformada = moment.tz(dataFerias, strTimeZone);
 
 		$('#clock').countdown(dataInformada.toDate())
@@ -64,10 +66,16 @@ function calcularFerias() {
 }
 
 $(document).ready(function () {
-	$("#timezone").select2({ theme: "classic" });
+	$("#timezone").select2({
+		theme: "classic"
+	});
 
 	if (localStorage.getItem("dataFerias") !== null)
 		$("#dataFerias").val(localStorage.getItem("dataFerias"));
+	if (localStorage.getItem("timeZone") !== null) {
+		var timeZone = localStorage.getItem("timeZone");
+		$("#timezone").val(timeZone).trigger('change.select2')
+	}
 
 	$("#btnCalcular").click(function () {
 		calcularFerias();
