@@ -32,7 +32,10 @@ function calcularFerias() {
 
 	var dataFerias = $("#dataFerias").val();
 
-
+	if (typeof (Storage) !== "undefined") {
+		localStorage.setItem("dataFerias", dataFerias);
+	}
+	
 	if (dataFerias !== "" && new Date(dataFerias) != "Invalid Date") {
 		var strTimeZone = $("#timezone option:selected").text();
 		var dataInformada = moment.tz(dataFerias, strTimeZone);
@@ -62,6 +65,9 @@ function calcularFerias() {
 
 $(document).ready(function () {
 	$("#timezone").select2({ theme: "classic" });
+
+	if (localStorage.getItem("dataFerias") !== null)
+		$("#dataFerias").val(localStorage.getItem("dataFerias"));
 
 	$("#btnCalcular").click(function () {
 		calcularFerias();
